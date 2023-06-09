@@ -1,16 +1,30 @@
 class Solution {
-    public void moveZeroes(int[] nums) {
-        
-       int snowBallSize = 0; 
-        for (int i=0;i<nums.length;i++){
-	        if (nums[i]==0){
-                snowBallSize++; 
+    public void moveZeroes(int[] arr) {
+        int n = arr.length;
+      int i = 0;
+        int j = i+1;
+        while(j<n){
+            if(arr[i]==0 & arr[j] != 0){
+                swap(arr,i,j);
             }
-            else if (snowBallSize > 0) {
-	            int t = nums[i];
-	            nums[i]=0;
-	            nums[i-snowBallSize]=t;
+            else if(arr[i]==0 & arr[j]==0){
+                j++;
             }
+            
+           else{
+                 j++;
+            i++;
+           } 
         }
+
+        
+
+    }
+    
+    public static void swap(int [] arr,int i ,int j){
+        
+        int temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
     }
 }
