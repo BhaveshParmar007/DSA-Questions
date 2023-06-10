@@ -35,21 +35,33 @@ public class Main {
 class Solution {
     void pushZerosToEnd(int[] arr, int n) {
         // code here
-        int j = 0;
-        int count = 0;
-        int [] arr2 = new int [n];
-        for(int i = 0;i<n;i++){
-            if(arr[i]!=0){
-                arr2[j] = arr[i]; 
-                count++;
+        
+        int i = 0;
+        int j = i+1;
+        while(j<n){
+            if(arr[i]==0 & arr[j] != 0){
+                swap(arr,i,j);
+                
+            }
+            else if(arr[i]==0 & arr[j]==0 ){
                 j++;
             }
+            else{
+                 j++;
+            i++;
+           } 
         }
-        for(int i = count+1;i<n;i++){
-            arr2[i] = 0;
-        }
-        for(int i  =0;i<n;i++){
-            arr[i] = arr2[i];
-        }
+        
+        
+    }
+    
+    public static void swap(int [] arr,int i ,int j){
+        
+        
+            int temp = arr[i];
+            arr[i] = arr[j];
+            arr[j] = temp ;
+            
+    
     }
 }
